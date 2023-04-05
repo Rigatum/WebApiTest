@@ -48,3 +48,8 @@ C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest.genruntimeconfig.cache
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\AWSSDK.Core.dll
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\AWSSDK.S3.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest.MvcApplicationPartsAssemblyInfo.cs
