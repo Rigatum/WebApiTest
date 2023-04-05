@@ -10,10 +10,10 @@ namespace WebApiTest.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
-        UserContext db;
-        public UserController(UserContext context)
+        DatabaseContext db;
+        public UsersController(DatabaseContext context)
         {
             db = context;
             if (!db.Users.Any())
@@ -31,7 +31,7 @@ namespace WebApiTest.Controllers
         }
 
         // GET api/users/5
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<User>>> Get(int id)
         {
             User user = await db.Users.FirstOrDefaultAsync(x => x.Id == id);
