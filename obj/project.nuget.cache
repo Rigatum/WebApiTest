@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LK2+tATDxsE9knfQZcNf6JEm3hDP9ileLixFCr4/g/BY97M6wIKXqFL+JeAc7vd0Y9iNJkoynVR4bWJQOwQqSg==",
+  "dgSpecHash": "xDh5OCYylXcNVRNFvDOWguDSlNihCrMEhNC+L4FRROfwYsP1OF/195UAWqnj4TXJra6WAGKBen6tx9bD/xuVZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\tagir\\source\\repos\\!net5\\Sandbox\\WebApiTest\\WebApiTest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tagir\\.nuget\\packages\\awssdk.core\\3.7.106.12\\awssdk.core.3.7.106.12.nupkg.sha512",
+    "C:\\Users\\tagir\\.nuget\\packages\\awssdk.s3\\3.7.103.42\\awssdk.s3.3.7.103.42.nupkg.sha512",
     "C:\\Users\\tagir\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.0\\microsoft.data.sqlite.core.5.0.0.nupkg.sha512",
     "C:\\Users\\tagir\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\tagir\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",

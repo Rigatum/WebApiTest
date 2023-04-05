@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WebApiTest/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.103.42",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -324,6 +325,31 @@
         },
         "compile": {
           "WebApiTest.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.106.12": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.106.12"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.7.103.42": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.106.12"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.103.42"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
         }
       },
       "Microsoft.Data.Sqlite.Core/5.0.0": {
@@ -2301,6 +2327,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.106.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qD649MG2hmNOzvlzBq9AqBZsgUNCjvvNasCu4HZRGGDBrzZIm90OnWJhW0pDe3Vd3YmICjAH5acMjLgim8DnZQ==",
+      "path": "awssdk.core/3.7.106.12",
+      "hashPath": "awssdk.core.3.7.106.12.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.103.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E0U5RhUI3R09OGP42ScF9kuxXT/QnVANa/IBOQjir7d4lz64+pCcDFh3rCYiD9mkOOVDmA781Kfrebam3La9Bw==",
+      "path": "awssdk.s3/3.7.103.42",
+      "hashPath": "awssdk.s3.3.7.103.42.nupkg.sha512"
     },
     "Microsoft.Data.Sqlite.Core/5.0.0": {
       "type": "package",

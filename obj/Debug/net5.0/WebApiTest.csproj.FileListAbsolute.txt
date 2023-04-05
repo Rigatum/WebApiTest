@@ -46,3 +46,5 @@ C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\ref\WebApiTest.dll
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest.pdb
 C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\obj\Debug\net5.0\WebApiTest.genruntimeconfig.cache
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\AWSSDK.Core.dll
+C:\Users\tagir\source\repos\!net5\Sandbox\WebApiTest\bin\Debug\net5.0\AWSSDK.S3.dll
