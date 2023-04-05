@@ -68,6 +68,7 @@ namespace WebApiTest.Controllers
             }
  
             db.Update(user);
+            System.Console.WriteLine(user.ToString());
             await db.SaveChangesAsync();
             return Ok(user);
         }
