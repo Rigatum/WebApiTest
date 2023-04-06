@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
+using WebApiTest.Models;
+using System.IO;
 
 namespace WebApiTest.Controllers
 {
@@ -14,28 +16,30 @@ namespace WebApiTest.Controllers
     [Route("api/[controller]")]
     public class S3Controller : ControllerBase
     {
-        public string BucketName = "rigat-bucker";
+        private S3Configuration S3conf = new S3Configuration();
         [HttpPost]
         public async Task Post(IFormFile formFile)
         {
-            var client = new AmazonS3Client();
-            var bucketExist = await AmazonS3Util.DoesS3BucketExistV2Async(client, BucketName);
-            if (!bucketExist)
+            await using var newMemoryStream = new MemoryStream();
+            formFile.CopyTo(newMemoryStream);
+            try
             {
-                var bucketRequest = new PutBucketRequest()
+                var putRequest = new PutObjectRequest
                 {
-                    BucketName = BucketName,
-                    UseClientRegion = true
+                    InputStream = newMemoryStream,
+                    BucketName = S3conf.BucketName,
+                    Key = formFile.Name
                 };
-                await client.PutBucketAsync(bucketRequest);
+                PutObjectResponse response = await S3conf.client.PutObjectAsync(putRequest);
             }
-            var objectRequest = new PutObjectRequest()
+            catch(AmazonS3Exception e)
             {
-                BucketName = BucketName,
-                Key = formFile.FileName,
-                InputStream = formFile.OpenReadStream(),
-            };
-            var response = client.PutObjectAsync(objectRequest);
+                System.Console.WriteLine("Amazon exception " + e.Message);
+            }
+            catch(Exception e)
+            {
+                System.Console.WriteLine("exception " + e.Message);
+            }
         }
     }
 }
