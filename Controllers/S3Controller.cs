@@ -98,5 +98,12 @@ namespace WebApiTest.Controllers
             var s3Object = await S3conf.client.GetObjectAsync(S3conf.BucketName, key);
             return File(s3Object.ResponseStream, s3Object.Headers.ContentType, key);
         }
+
+        [HttpDelete("DeleteFile")]
+        public async Task<IActionResult> DeleteFuleAsync(string key)
+        {
+            await S3conf.client.DeleteObjectAsync(S3conf.BucketName, key);
+            return NoContent();
+        }
     }
 }
