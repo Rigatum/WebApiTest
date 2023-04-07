@@ -29,7 +29,7 @@ namespace WebApiTest.Controllers
                 {
                     InputStream = newMemoryStream,
                     BucketName = S3conf.BucketName,
-                    Key = $"Tagir: {formFile.FileName}"
+                    Key = formFile.FileName
                 };
                 PutObjectResponse response = await S3conf.client.PutObjectAsync(putRequest);
             }
@@ -52,7 +52,6 @@ namespace WebApiTest.Controllers
                 var request = new ListObjectsV2Request
                 {
                     BucketName = S3conf.BucketName,
-                    Prefix = "Tagir",
                     MaxKeys = 10,
                 };
                 ListObjectsV2Response response;
