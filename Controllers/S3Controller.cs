@@ -28,7 +28,7 @@ namespace WebApiTest.Controllers
                 {
                     InputStream = newMemoryStream,
                     BucketName = S3conf.BucketName,
-                    Key = formFile.Name
+                    Key = formFile.FileName
                 };
                 PutObjectResponse response = await S3conf.client.PutObjectAsync(putRequest);
             }
