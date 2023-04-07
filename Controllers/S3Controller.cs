@@ -92,10 +92,11 @@ namespace WebApiTest.Controllers
             
         }
 
-        // [HttpGet("get-by-key")]
-        // public async Task<IActionResult> GetFileByKeyAsync()
-        // {
-
-        // }
+        [HttpGet("GetByKey")]
+        public async Task<IActionResult> GetFileByKeyAsync(string key)
+        {
+            var s3Object = await S3conf.client.GetObjectAsync(S3conf.BucketName, key);
+            return File(s3Object.ResponseStream, s3Object.Headers.ContentType, key);
+        }
     }
 }
