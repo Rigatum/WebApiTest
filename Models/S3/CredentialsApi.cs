@@ -7,7 +7,7 @@ namespace WebApiTest.Models
 {
     public static class CredentialsApi
     {
-        public const string PublicApiKey = "AKIAW26X7DYZVW44UKZY";
-        public const string SecretApiKey = "I9dK8y821WSTZ5arTuAPOQnWbYjt3yJUA4uTW6PD";
+        public const string PublicApiKey = "YOUR_PUBLIC_API_KEY";
+        public const string SecretApiKey = "YOUR_SECRET_API_KEY";
     }
 }
