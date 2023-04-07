@@ -43,7 +43,7 @@ namespace WebApiTest.Controllers
             }
         }
 
-        [HttpGet("get-all")]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllFilesAsync()
         {
             IEnumerable<S3ObjectDto> s3Objects; 
