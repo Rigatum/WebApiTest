@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
+using WebApiTest.Models.S3;
 using WebApiTest.Models;
 using System.IO;
 
@@ -17,8 +18,8 @@ namespace WebApiTest.Controllers
     public class S3Controller : ControllerBase
     {
         private S3Configuration S3conf = new S3Configuration();
-        [HttpPost]
-        public async Task Post(IFormFile formFile)
+        [HttpPost("UploadFile")]
+        public async Task UploadFileAsync(IFormFile formFile)
         {
             await using var newMemoryStream = new MemoryStream();
             formFile.CopyTo(newMemoryStream);
@@ -28,7 +29,7 @@ namespace WebApiTest.Controllers
                 {
                     InputStream = newMemoryStream,
                     BucketName = S3conf.BucketName,
-                    Key = formFile.FileName
+                    Key = $"Tagir: {formFile.FileName}"
                 };
                 PutObjectResponse response = await S3conf.client.PutObjectAsync(putRequest);
             }
@@ -38,8 +39,63 @@ namespace WebApiTest.Controllers
             }
             catch(Exception e)
             {
-                System.Console.WriteLine("exception " + e.Message);
+                System.Console.WriteLine("app exception " + e.Message);
             }
         }
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAllFilesAsync()
+        {
+            IEnumerable<S3ObjectDto> s3Objects; 
+            try
+            {
+                var request = new ListObjectsV2Request
+                {
+                    BucketName = S3conf.BucketName,
+                    Prefix = "Tagir",
+                    MaxKeys = 10,
+                };
+                ListObjectsV2Response response;
+
+                do
+                {
+                    response = await S3conf.client.ListObjectsV2Async(request);
+
+                    s3Objects = response.S3Objects.Select(s =>
+                    {
+                        var urlRequest = new GetPreSignedUrlRequest()
+                        {
+                            BucketName = S3conf.BucketName,
+                            Key = s.Key,
+                            Expires = DateTime.UtcNow.AddMinutes(1)
+                        };
+                        return new S3ObjectDto()
+                        {
+                            Name = s.Key.ToString(),
+                            PresignedUrl = S3conf.client.GetPreSignedURL(urlRequest)
+                        };
+                    });
+                }
+                while (response.IsTruncated);
+                return Ok(s3Objects);
+            }
+            catch (AmazonS3Exception ex)
+            {
+                Console.WriteLine($"Error encountered on server. Message:'{ex.Message}' getting list of objects.");
+                return BadRequest();
+            }
+            catch(Exception e)
+            {
+                System.Console.WriteLine("app exception " + e.Message);
+                return BadRequest();
+            }
+            
+        }
+
+        // [HttpGet("get-by-key")]
+        // public async Task<IActionResult> GetFileByKeyAsync()
+        // {
+
+        // }
     }
 }
