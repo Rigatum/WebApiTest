@@ -15,7 +15,7 @@ namespace WebApiTest.Models
         
         public S3Configuration()
         {
-            client = new AmazonS3Client(CredentialsApi.PublicApiKey, CredentialsApi.SecretApiKey);
+            client = new AmazonS3Client(CredentialsApi.PublicApiKey, CredentialsApi.SecretApiKey, Amazon.RegionEndpoint.USEast1);
         }
     }
 }
